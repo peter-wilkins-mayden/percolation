@@ -19,7 +19,7 @@ impl PercStats {
             let mut rng = rand::thread_rng();
             let mut p = Perc::new(grid_size);
             let mut count: usize = 0;
-            (while !p.percolates() {
+            while !p.percolates() {
                 let r = rng.gen_range(0, grid_size * grid_size);
                 let row = r / grid_size + 1;
                 let col = r % grid_size + 1;
@@ -27,7 +27,7 @@ impl PercStats {
                     p.open(row, col);
                     count += 1;
                 }
-            });
+            }
             (count / grid_size) as f64
         }).collect();
 
